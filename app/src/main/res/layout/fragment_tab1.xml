@@ -1,0 +1,147 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.myapplication.Tab1">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:id="@+id/t1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textSize="30dp"
+        />
+
+    <TableLayout
+
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TableRow
+            android:layout_marginTop="150dp"
+            android:layout_weight="3"
+            android:padding="5dip">
+
+            <TextView
+
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_marginBottom="20dp"
+                android:layout_weight="0.5"
+                android:background="#DAE8FC"
+                android:gravity="center_horizontal"
+                android:text="Vulnerability"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/r1c1"
+                android:layout_column="0"
+                android:layout_marginBottom="15dp"
+                android:layout_weight="2.5"
+                android:background="@drawable/table_row_last_bg"
+                android:ellipsize="end"
+                android:gravity="center_horizontal"
+
+                />
+
+
+        </TableRow>
+
+        <TableRow
+            android:layout_weight="3"
+
+            android:padding="5dip">
+
+            <TextView
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_marginBottom="20dp"
+                android:layout_weight="1"
+                android:background="#DAE8FC"
+                android:gravity="center_horizontal"
+                android:text="Status"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/r1c2"
+                android:layout_column="0"
+                android:layout_marginBottom="15dp"
+                android:layout_weight="7"
+                android:background="@drawable/table_row_last_bg"
+                android:ellipsize="end"
+                android:gravity="center_horizontal"
+
+                />
+
+
+        </TableRow>
+
+        <TableRow
+            android:layout_weight="3"
+
+            android:padding="5dip">
+
+            <TextView
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_marginBottom="20dp"
+                android:layout_weight="1"
+                android:background="#DAE8FC"
+                android:gravity="center_horizontal"
+                android:text="Remarks"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/r1c3"
+                android:layout_column="0"
+                android:layout_marginBottom="15dp"
+                android:layout_weight="7"
+                android:background="@drawable/table_row_last_bg"
+                android:ellipsize="end"
+                android:gravity="center_horizontal"
+
+                />
+
+
+        </TableRow>
+
+        <TableRow
+            android:layout_weight="3"
+
+            android:padding="5dip">
+
+            <TextView
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_marginBottom="20dp"
+                android:layout_weight="1"
+                android:background="#DAE8FC"
+                android:gravity="center_horizontal"
+                android:text="Details"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/r1c4"
+                android:layout_column="0"
+                android:layout_marginBottom="15dp"
+                android:layout_weight="7"
+                android:background="@drawable/table_row_last_bg"
+                android:ellipsize="end"
+                android:gravity="center_horizontal"
+
+                />
+
+
+        </TableRow>
+    </TableLayout>
+</RelativeLayout>
