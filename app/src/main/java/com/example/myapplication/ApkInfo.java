@@ -27,6 +27,7 @@ import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.FeatureInfo;
@@ -36,6 +37,7 @@ import android.content.pm.PathPermission;
 import android.content.pm.ProviderInfo;
 import android.content.pm.ResolveInfo;
 import android.content.pm.ServiceInfo;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.graphics.pdf.PdfDocument;
 import android.net.Uri;
@@ -73,7 +75,7 @@ public class ApkInfo extends Activity {
     private static Socket s;
 
     private static ObjectOutputStream os;
-    private static String ip="192.168.0.105";
+    private static String ip="192.168.0.107";
 
     private int spoof_count=0;
     private int progress=0;
@@ -81,7 +83,7 @@ public class ApkInfo extends Activity {
     String result_vul,result_details;
     int vul_count=0;
     String code;
-
+    String activities = "";
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -90,8 +92,8 @@ public class ApkInfo extends Activity {
         //circularProgressBar();
 
         //final ProgressBar progressBar = (ProgressBar) findViewById(R.id.circle_progress_bar);
-        packageInfo = AppData.getPackageInfo();
 
+        packageInfo = AppData.getPackageInfo();
         apName = getPackageManager().getApplicationLabel(packageInfo.applicationInfo).toString();
         packName = packageInfo.packageName;
 
@@ -114,29 +116,30 @@ public class ApkInfo extends Activity {
                 System.out.println(a.toString());
                 System.out.println(a.permission);
                 System.out.println(a.exported);
-                Log.v("permissions",list.toString());
-                Log.v("permissions_exp",a.exported+"");
-                if(a.exported==true)
+                Log.v("permissions", list.toString());
+                Log.v("permissions_exp", a.exported + "");
 
-                {
-                    exported_activity="The exposed activities are"+"\n";
-                    exported_activity+=a.toString()+"\n";
+                if (a.exported == true) {
+                    activities += a.toString() + "\n";
+
+
                     spoofVul = "Yes";
                     spoof_count++;
 
                 }
+            }
 
-
+                System.out.println("activitiessss -> "+activities);
 
                 total_act=list.length;
                 float percent=(((float)spoof_count/(float)total_act));
                 if(percent>0)
                 {
-                     exported_activity+="Vulnerable activities : "+spoof_count+"\n Total activities :"+total_act+"\n Percentage of vulnerable activities :"+percent*100+"%";
+                     exported_activity="Exposed activities are \n"+activities+"Vulnerable activities : "+spoof_count+"\n Total activities :"+total_act+"\n Percentage of vulnerable activities :"+percent*100+"%";
                 }
 
 
-            }
+
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
@@ -298,6 +301,12 @@ public class ApkInfo extends Activity {
         {
             try
             {
+
+
+
+
+
+
 
 
                 s=new Socket(ip,5011);
